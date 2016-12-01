@@ -44,16 +44,16 @@ public class Passenger {
 	 */
 	
 	
-	public boolean isBoarded() {
+	public String isBoarded() {
 		return isBoarded;
 	}
-	public void setBoarded(boolean isBoarded) {
+	public void setBoarded(String isBoarded) {
 		this.isBoarded = isBoarded;
 	}
-	public int getTcNO() {
+	public String getTcNO() {
 		return tcNO;
 	}
-	public void setTcNO(int tcNO) {
+	public void setTcNO(String tcNO) {
 		this.tcNO = tcNO;
 	}
 	public String getName() {
@@ -80,10 +80,10 @@ public class Passenger {
 	public void setMobileTel(String mobileTel) {
 		this.mobileTel = mobileTel;
 	}
-	public int getBaggageID() {
+	public String getBaggageID() {
 		return baggageID;
 	}
-	public void setBaggageID(int baggageID) {
+	public void setBaggageID(String baggageID) {
 		this.baggageID = baggageID;
 	}
 	
