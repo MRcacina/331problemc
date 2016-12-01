@@ -13,6 +13,7 @@ public class Passenger {
 	private String mail;
 	private String mobileTel;
 	private int baggageID;
+	private boolean isBoarded;
 	
 	/*
 	 * 
@@ -25,6 +26,12 @@ public class Passenger {
 	 */
 	
 	
+	public boolean isBoarded() {
+		return isBoarded;
+	}
+	public void setBoarded(boolean isBoarded) {
+		this.isBoarded = isBoarded;
+	}
 	public int getTcNO() {
 		return tcNO;
 	}
@@ -61,9 +68,6 @@ public class Passenger {
 	public void setBaggageID(int baggageID) {
 		this.baggageID = baggageID;
 	}
-	
-	
-	
 	
 	
 	
