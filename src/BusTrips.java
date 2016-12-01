@@ -7,10 +7,25 @@ public class BusTrips {
 	 */
 	
 	private String departureLocation;
-	private String arrrivalLocation;
+	private String arrivalLocation;
 	private String departureTime;
 	private String arrivalTime;
 	private ArrayList<Passenger> passengerList;
+	
+	
+	/*
+	 * Adding BusTrips constructor.
+	 */
+	
+	public BusTrips(String departureLocation,String arrivalLocation,String departureTime,
+			String arrivalTime){
+		
+		this.departureLocation=departureLocation;
+		this.arrivalLocation=arrivalLocation;
+		this.departureTime=departureTime;
+		this.arrivalTime=arrivalTime;
+		
+	}
 	
 	
 	/*
@@ -24,10 +39,10 @@ public class BusTrips {
 		this.departureLocation = departureLocation;
 	}
 	public String getArrrivalLocation() {
-		return arrrivalLocation;
+		return arrivalLocation;
 	}
 	public void setArrrivalLocation(String arrrivalLocation) {
-		this.arrrivalLocation = arrrivalLocation;
+		this.arrivalLocation = arrrivalLocation;
 	}
 	public String getDepartureTime() {
 		return departureTime;
