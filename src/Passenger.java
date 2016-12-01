@@ -7,13 +7,31 @@ public class Passenger {
 	 * 
 	 */
 	
-	private int tcNO;
+	private String tcNO;
 	private String name;
 	private String surname;
 	private String mail;
 	private String mobileTel;
-	private int baggageID;
-	private boolean isBoarded;
+	private String baggageID;
+	private String isBoarded;
+	
+	/*
+	 * Created constructor for Passenger.
+	 */
+	
+	public Passenger(String tcNO,String name,String surname,
+			String mail,String mobileTel,String baggageID){
+		
+		this.tcNO=name;
+		this.name=name;
+		this.surname=surname;
+		this.mail=mail;
+		this.mobileTel=mobileTel;
+		this.baggageID=baggageID;
+		this.isBoarded="No";
+		
+		
+	}
 	
 	/*
 	 * 
