@@ -30,12 +30,8 @@ public class TicketSeller {
 		System.out.println("Please enter the passengers mobile tel.");
 		
 		String mobileTel = scanner.next();
-
-		System.out.println("Please enter the passengers baggage ID.");
 		
-		String baggageID = scanner.next();
-		
-		Passenger pass = new Passenger(tcNO,name,surname,mail,mobileTel,baggageID);
+		Passenger pass = new Passenger(tcNO,name,surname,mail,mobileTel);
 		
 		return pass;
 

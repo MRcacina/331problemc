@@ -20,14 +20,13 @@ public class Passenger {
 	 */
 	
 	public Passenger(String tcNO,String name,String surname,
-			String mail,String mobileTel,String baggageID){
+			String mail,String mobileTel){
 		
 		this.tcNO=name;
 		this.name=name;
 		this.surname=surname;
 		this.mail=mail;
 		this.mobileTel=mobileTel;
-		this.baggageID=baggageID;
 		this.isBoarded="No";
 		
 		
