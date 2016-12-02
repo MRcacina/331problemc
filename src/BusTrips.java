@@ -10,7 +10,7 @@ public class BusTrips {
 	private String arrivalLocation;
 	private String departureTime;
 	private String arrivalTime;
-	private ArrayList<Passenger> passengerList;
+	private ArrayList<Passenger> passengerList = new ArrayList<Passenger>();;
 	
 	
 	/*
