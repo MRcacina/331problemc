@@ -33,11 +33,38 @@ public class Operator {
 				
 				System.out.println("Passengers boarded information has been set.");
 				
-			}else{
-				System.out.println("Passenger not found !");
 			}
 			
 		}
+			
+		}
+		
+		
+		public void addBaggageID(ArrayList<Passenger> a){
+			
+			Scanner s = new Scanner(System.in);
+			
+			System.out.println("Please enter the TC NO of the passenger you would like to add Baggage ID");
+			
+			String tc = s.next();
+			
+			for(Passenger p : a){
+				
+				if(tc.equals(p.getTcNO())){
+					
+					System.out.println("Passenger found !");
+					
+					System.out.println("Please enter the baggage ID.");
+					
+					String board = s.next();
+					
+					p.setBoarded(board);;
+					
+					System.out.println("Passengers baggage ID has been added.");
+					
+				}
+				
+			}
 		
 		
 		
