@@ -1,259 +1,78 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
 
-public class Main {
+public class Main extends JFrame implements ActionListener {
 
-	
-	
-	public static void main(String[] args) {
-		
-		ArrayList<BusTrips> BusTripsArray = new ArrayList<BusTrips>();
-		
-		System.out.println("Welcome to Train Program.");
-		
-		System.out.println("Please write start and press enter to continue.");
-		
-		Scanner s = new Scanner(System.in);
-		
-		String temp = s.next();
-		
-		while(true){
-			
-			System.out.println("Which operation would you like to do ?");
-			
-			System.out.println("Press 1 to add Bus Trip");
-			
-			System.out.println("Press 2 to Sell Ticket");
-			
-			System.out.println("Press 3 to edit Boarding Information");
-			
-			System.out.println("Press 4 to add Baggage Information");
-			
-			System.out.println("Press 5 to list all Bus Trips");
-			
-			System.out.println("Press 6 to list all Passengers in a Bus Trip");
-			
-			String first = s.next();
-			
-			if(first.equals("1")){
-				
-				System.out.println("Please enter the departure location");
-				
-				String depLoc = s.next();
-				
-				System.out.println("Please enter the arrival location");
-				
-				String arrLoc = s.next();
-				
-				System.out.println("Please enter the departure time");
-				
-				String depTime = s.next();
-				
-				System.out.println("Please enter the arrival time");
-				
-				String arrTime = s.next();
-				
-				BusTripsArray.add(new BusTrips(depLoc,arrLoc,depTime,arrTime));
-				
-				System.out.println("Bus trip added.");
-				
-				System.out.println("\n" + "\n");
-				
-			}
-			
-			else if(first.equals("2")){
-				
-				System.out.println("For which trip you would like to sell ticket");
-				
-				System.out.println("Please enter the departure location.");
-				
-				String depLoc = s.next();
-				
-				System.out.println("Please enter the arrival location");
-				
-				String arrLoc = s.next();
-				
-				System.out.println("Please enter the departure time");
-				
-				String depTime = s.next();
-				
-				for(BusTrips b : BusTripsArray){
-					
-					if(depLoc.equals(b.getDepartureLocation()) && 
-							arrLoc.equals(b.getArrrivalLocation()) && 
-							depTime.equals(b.getDepartureTime())){
-						
-						TicketSeller t = new TicketSeller();
-						
-						b.getPassengerList().add(t.sellTicket());
-						
-						System.out.println("Passenger successfully added to the trip");
-						
-						
-					}
-					
-				}
-				
-				
-				
-				System.out.println("\n" + "\n");
-				
-			}
-
-			else if(first.equals("3")){
-				
-				System.out.println("For which trip you would like to edit boarding information ?");
-				
-				System.out.println("Please enter the departure location.");
-				
-				String depLoc = s.next();
-				
-				System.out.println("Please enter the arrival location");
-				
-				String arrLoc = s.next();
-				
-				System.out.println("Please enter the departure time");
-				
-				String depTime = s.next();
-				
-				for(BusTrips b : BusTripsArray){
-					
-					if(depLoc.equals(b.getDepartureLocation()) && 
-							arrLoc.equals(b.getArrrivalLocation()) && 
-							depTime.equals(b.getDepartureTime())){
-						
-						System.out.println("For which passenger you would like to edit the boarding information ?");
-						
-						Operator o = new Operator();
-						
-						o.setBoardedInformation(b.getPassengerList());
-						
-						
-					}
-					
-				}
-
-	
-				System.out.println("\n" + "\n");
-	
-			}
-
-			else if(first.equals("4")){
-	
-				System.out.println("For which trip you would like to edit Baggage Information ?");
-				
-				System.out.println("Please enter the departure location.");
-				
-				String depLoc = s.next();
-				
-				System.out.println("Please enter the arrival location");
-				
-				String arrLoc = s.next();
-				
-				System.out.println("Please enter the departure time");
-				
-				String depTime = s.next();
-				
-				for(BusTrips b : BusTripsArray){
-					
-					if(depLoc.equals(b.getDepartureLocation()) && 
-							arrLoc.equals(b.getArrrivalLocation()) && 
-							depTime.equals(b.getDepartureTime())){
-						
-						System.out.println("For which passenger you would like to add the baggage ID ?");
-						
-						Operator o = new Operator();
-						
-						o.addBaggageID(b.getPassengerList());
-						
-						
-					}
-					
-				}
-
-	
-				System.out.println("\n" + "\n");
-	
-			}
-
-			else if(first.equals("5")){
-				
-				for(BusTrips b : BusTripsArray){
-					
-					System.out.println("Departure Location : " + b.getDepartureLocation() 
-					+ ", Arrival Location : " + b.getArrrivalLocation() + ", Departure Time : " + b.getDepartureTime()
-					+ ", Arrival Time : " + b.getArrivalTime());
-					
-				}
-	
-				System.out.println("\n" + "\n");
-	
-			}
-
-			else if(first.equals("6")){
-				
-				System.out.println("For which trip you would like to display passenger list ?");
-				
-				System.out.println("Please enter the departure location.");
-				
-				String depLoc = s.next();
-				
-				System.out.println("Please enter the arrival location");
-				
-				String arrLoc = s.next();
-				
-				System.out.println("Please enter the departure time");
-				
-				String depTime = s.next();
-				
-				for(BusTrips b : BusTripsArray){
-					
-					if(depLoc.equals(b.getDepartureLocation()) && 
-							arrLoc.equals(b.getArrrivalLocation()) && 
-							depTime.equals(b.getDepartureTime())){
-						
-						for(Passenger p : b.getPassengerList()){
-							
-							System.out.println("Passenger TC No : " + p.getTcNO() 
-							+ " Passenger Name : " + p.getName() +
-							" Passenger Last Name : " + p.getSurname() + 
-							" Passenger Mail Adress : " + p.getMail() +
-							" Passenger Phone Number : " + p.getMobileTel());
-							
-						}
-						
-						
-						
-						
-					}
-					
-				}
-				
-				
-	
-				System.out.println("\n" + "\n");
-	
-			}
-			
-			else{
-				
-				System.out.println("Wrong input ! Please try again." + "\n" + "\n" + "\n");
-			}
-			
-			
-			
-			
-		} // End of infinite while
-		
-		
-		
-		
-		
-		
-
-	} // End of main method.
-	
-	
+	JTextField tfIn;
+	JTextArea lblOut;
 	
 
-} // End of class.
+	private final PipedInputStream inPipe = new PipedInputStream(); 
+    private final PipedInputStream outPipe = new PipedInputStream(); 
+
+	PrintWriter inWriter;
+	
+	
+	Main(GUI gb) throws InterruptedException {
+		super("Bus Operations");
+
+	 
+	    // 2. set the System.in and System.out streams 
+	    System.setIn(inPipe); 
+	    try {
+	    	System.setOut(new PrintStream(new PipedOutputStream(outPipe), true)); 
+	    	inWriter = new PrintWriter(new PipedOutputStream(inPipe), true); 
+	    }
+	    catch(IOException e) {
+	    	System.out.println("Error: " + e);
+	    	return;
+	    }
+	    
+	    JPanel p = new JPanel(new BorderLayout());
+	    lblOut = new JTextArea();
+	    lblOut.setLineWrap(true);
+	    p.add(lblOut, BorderLayout.NORTH);
+	    tfIn = new JTextField();
+	    tfIn.addActionListener(this);
+	    p.add(tfIn, BorderLayout.SOUTH);
+	    
+	    add(p);
+	    
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setVisible(true);
+		setSize(250, 300);
+		
+	    new SwingWorker<Void, String>() { 
+	         protected Void doInBackground() throws Exception { 
+	            Scanner s = new Scanner(outPipe);
+	            while (s.hasNextLine()) {
+	            		 String line = s.nextLine();
+		            	 publish(line);
+	            }
+	            return null; 
+	        } 
+	         @Override protected void process(java.util.List<String> chunks) { 
+	             for (String line : chunks) lblOut.setText(line); 
+	         } 
+
+	    }.execute(); 
+
+		gb.play();
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		String text = tfIn.getText();
+		tfIn.setText("");
+		inWriter.println(text); 
+		
+
+	}
+	public static void main(String[] args) throws InterruptedException {
+		GUI gb = new GUI();
+		new Main(gb);
+	}
+}
