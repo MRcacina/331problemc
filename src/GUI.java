@@ -23,7 +23,7 @@ public class GUI extends JPanel {
 
 		ArrayList<BusTrips> BusTripsArray = new ArrayList<BusTrips>();
 
-		System.out.println("Welcome to Train Program.");
+		System.out.println("Welcome to Bus Boarding Program.");
 
 		System.out.println("Please write start and press enter to continue.");
 
