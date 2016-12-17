@@ -230,9 +230,12 @@ public class GUI extends JPanel {
 
 				System.out.println("\n" + "\n");
 
-			} // End of infinite while
+			} else{
+				System.out.println();
+				System.out.println("Wrong input please try again !" + "\n");
+			}
 
-		}
+		}// End of infinite while
 
 	} // End of play method.
 

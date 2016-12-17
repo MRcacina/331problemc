@@ -35,7 +35,6 @@ public class Main extends JFrame implements ActionListener {
 	    
 	    JPanel p = new JPanel(new BorderLayout());
 	    lblOut = new JTextArea();
-	    lblOut.setSize(p.getWidth(),200);
 	    lblOut.setLineWrap(true);
 	    DefaultCaret caret = (DefaultCaret)lblOut.getCaret();
 	    caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
@@ -49,7 +48,7 @@ public class Main extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setResizable(false);
-		setSize(500, 900);
+		setSize(700, 700);
 		
 	    new SwingWorker<Void, String>() { 
 	         protected Void doInBackground() throws Exception { 
@@ -59,8 +58,8 @@ public class Main extends JFrame implements ActionListener {
 	            		 
 	            		 line += "\n" + s.nextLine();
 		            	 publish(line);
-		            	 if(countLines(line) > 40){
-		            		 line = line.substring(40,line.length()-1);
+		            	 if(countLines(line) > 35){
+		            		 line = line.substring(40,line.length());
 	            		 }
 		            	 
 	            }
