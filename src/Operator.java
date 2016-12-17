@@ -58,7 +58,7 @@ public class Operator {
 					
 					String board = s.next();
 					
-					p.setBoarded(board);;
+					p.setBaggageID(board);;
 					
 					System.out.println("Passengers baggage ID has been added.");
 					

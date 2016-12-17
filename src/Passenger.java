@@ -22,7 +22,7 @@ public class Passenger {
 	public Passenger(String tcNO,String name,String surname,
 			String mail,String mobileTel){
 		
-		this.tcNO=name;
+		this.tcNO=tcNO;
 		this.name=name;
 		this.surname=surname;
 		this.mail=mail;

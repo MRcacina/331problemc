@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -33,7 +35,10 @@ public class Main extends JFrame implements ActionListener {
 	    
 	    JPanel p = new JPanel(new BorderLayout());
 	    lblOut = new JTextArea();
+	    lblOut.setSize(p.getWidth(),200);
 	    lblOut.setLineWrap(true);
+	    DefaultCaret caret = (DefaultCaret)lblOut.getCaret();
+	    caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 	    p.add(lblOut, BorderLayout.NORTH);
 	    tfIn = new JTextField();
 	    tfIn.addActionListener(this);
@@ -41,16 +46,23 @@ public class Main extends JFrame implements ActionListener {
 	    
 	    add(p);
 	    
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		setSize(250, 300);
+		setResizable(false);
+		setSize(500, 900);
 		
 	    new SwingWorker<Void, String>() { 
 	         protected Void doInBackground() throws Exception { 
 	            Scanner s = new Scanner(outPipe);
+	            String line="";
 	            while (s.hasNextLine()) {
-	            		 String line = s.nextLine();
+	            		 
+	            		 line += "\n" + s.nextLine();
 		            	 publish(line);
+		            	 if(countLines(line) > 40){
+		            		 line = line.substring(40,line.length()-1);
+	            		 }
+		            	 
 	            }
 	            return null; 
 	        } 
@@ -75,4 +87,9 @@ public class Main extends JFrame implements ActionListener {
 		GUI gb = new GUI();
 		new Main(gb);
 	}
+	
+	private static int countLines(String str){
+		   String[] lines = str.split("\r\n|\r|\n");
+		   return  lines.length;
+		}
 }
